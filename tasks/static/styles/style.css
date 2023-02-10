@@ -1,0 +1,37 @@
+
+tr {
+    font-size: 24px;
+    background-color: #d7b5c3;
+    margin: 30px;
+    padding-left: 25px;
+}
+
+div#navbar{
+    background: lavenderblush;
+    font-size: 30px;
+    font-style: inherit;
+    padding-bottom: 25px;
+
+}
+
+div#footer{
+    background: #d7b5c3;
+    color: black;
+    line-height: 25px;
+    padding-left: 20px;
+    margin-top: auto;
+}
+
+
+img#logo{
+    width: 140px;
+    border-radius: 50%;
+    height: 130px;
+}
+
+div#content{
+    background: lavenderblush;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

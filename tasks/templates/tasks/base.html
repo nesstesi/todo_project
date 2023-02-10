@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devise-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} | ToDoList</title>
+</head>
+<body>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+    <div id="navbar">
+        <img id="logo" src="{% static 'images/photo_2023-02-10_21-05-52.jpg' %}">
+        <span>ToDoList</span>
+        {% block menu %} {% endblock %}
+    </div>
+    <div id="content">
+        {% block content %} {% endblock %}
+    </div>
+    <div id="footer">
+        <div>Contact us on mymail@mail.com</div>
+        <div>All rights reserved 2023</div>
+    </div>
+</body>
+</html>
