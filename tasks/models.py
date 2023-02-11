@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 def validate_even(priority):
@@ -21,8 +22,9 @@ def in_10_days():
 
 class Task(models.Model):
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=50)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     done = models.BooleanField(default=False)
     due_date = models.DateTimeField(default=in_10_days)
     priority = models.PositiveSmallIntegerField(validators=[
