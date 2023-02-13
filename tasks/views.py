@@ -3,15 +3,23 @@ from django.shortcuts import render
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from tasks.models import Task
+from .forms import PostForm
 
 @login_required
 def index(request):
-    user = request.user
-    context = {
-        'tasks': user.task_set.all()
-    }
-    return render(request, 'tasks/tasks.html', context=context)
-    # return render(request, 'tasks/base.html', context=context)
+    if request.method == 'GET':
+        user = request.user
+        context = {
+            'tasks': user.task_set.all(),
+            'form': PostForm()
+        }
+        return render(request, 'tasks/tasks.html', context=context)
+    else:
+        form = PostForm(request.POST)
+        if form.is_valid:
+            form.save()
+
+
 
 def detail(request, task_id):
     # task = Task.objects.get(id=task_id)
